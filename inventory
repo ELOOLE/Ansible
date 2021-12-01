@@ -9,8 +9,3 @@ ansible_python_interpreter='/usr/bin/env python3'
 ###########################
 [kali_hosts]
 kali_local_vm ansible_host=192.168.64.147
-kali1 ansible_host=10.90.0.41
-kali2 ansible_host=10.90.0.23
-kali3 ansible_host=10.90.0.24
-kali4 ansible_host=10.90.0.25
-kaliSendMail ansible_host=10.20.0.180
