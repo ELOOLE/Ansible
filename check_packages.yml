@@ -1,0 +1,21 @@
+ hosts: kali
+  vars:
+     package_names:
+      - kali-linux-everything
+      - telnet
+      - nano
+      - metasploit-framework
+  become_user: root
+  tasks:
+    - name: Sprawdz zainstalowanie pakietu kali-linux-everything
+      package:
+        name: "{{ item }}"
+        state: present
+      check_mode: true
+      loop: "{{ package_names }}"
+      register: package_check
+
+    - name: "Print execution results"
+      debug:
+        msg: "Package is installed"
+      when: package_check is succeeded
