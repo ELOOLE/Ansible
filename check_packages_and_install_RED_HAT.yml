@@ -1,0 +1,23 @@
+- hosts: all
+  vars: 
+     package_names:
+      - telnet
+      - nano 
+
+  become_user: root
+  tasks: 
+# RED HAT
+    - name: "Check if listed package is installed or not on Red Hat Linux family"
+      command: rpm -q "{{ item }}"
+      loop: "{{ package_names }}"
+      register: redhat_package_check
+      changed_when: false
+      ignore_errors: true
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: Install package if not present RedHat
+      package:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ package_names }}"
+      when: redhat_package_check is failed and ansible_facts['os_family'] == "RedHat"
