@@ -2,10 +2,19 @@
   become_user: root
   tasks:
     - name: Aktualizacja apt repo i cache na wszystkich maszynkach KALI
-      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+      apt: 
+        update_cache: yes 
+        force_apt_get: yes 
+        cache_valid_time: 3600
 
     - name: Upgrade wszystkich pakietow na maszynkach KALI
-      apt: upgrade=dist force_apt_get=yes
+      apt: 
+        upgrade: dist 
+        force_apt_get: yes
+
+    - name: Sprzatanie -autoremove- pakietow na maszynkach KALI
+      apt: 
+        autoremove: yes
 
     - name: Sprawdzam czy wymagany jest restart
       register: reboot_required_file
