@@ -1,18 +1,18 @@
 - hosts: kali
   become_user: root
   tasks:
-    - name: Aktualizacja apt repo i cache na wszystkich maszynkach KALI
+    - name: Aktualizacja apt repo i cache
       apt: 
         update_cache: yes 
         force_apt_get: yes 
         cache_valid_time: 3600
 
-    - name: Upgrade wszystkich pakietow na maszynkach KALI
+    - name: Upgrade pakietow 
       apt: 
         upgrade: dist 
         force_apt_get: yes
 
-    - name: Sprzatanie -autoremove- pakietow na maszynkach KALI
+    - name: Sprzatanie -autoremove- pakietow 
       apt: 
         autoremove: yes
 
