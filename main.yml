@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Update systemu
+      include_tasks: 01_update.yml
+
+    - name: Instalacja pakietow
+      include_tasks: 02_packages.yml
+     
+    - name: Ustawiam systemctl
+      include_tasks: 03_systemctl.yml

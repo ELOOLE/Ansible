@@ -1,0 +1,26 @@
+- name: Aktualizacja apt repo i cache na wszystkich maszynkach KALI
+  apt:
+    update_cache: yes
+    force_apt_get: yes
+    cache_valid_time: 3600
+
+- name: Upgrade wszystkich pakietow na maszynkach KALI
+  apt:
+    upgrade: dist
+    force_apt_get: yes
+
+- name: Sprzatanie -autoremove- pakietow na maszynkach KALI
+  apt:
+    autoremove: yes
+
+- name: Sprawdzam czy wymagany jest restart
+  register: reboot_required_file
+  stat: path=/var/run/reboot-required get_md5=no
+
+- name: Remove useless packages from the cache
+  ansible.builtin.apt:
+    autoclean: yes
+
+- name: Remove dependencies that are no longer required
+  ansible.builtin.apt:
+    autoremove: yes

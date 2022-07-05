@@ -1,0 +1,25 @@
+- name: Usun code-oss
+  ansible.builtin.apt:
+    name: code-oss
+    state: absent
+
+- name: Lista pakietow do zainstalowania
+  ansible.builtin.apt:
+    pkg:
+    - kali-linux-everything
+    - telnet
+    - nano
+    - metasploit-framework
+    - python3
+    - python3-apt
+    - iptraf-ng
+    - xfce4
+    - xfce4-goodies
+    - xorg
+    - dbus-x11
+    - x11-xserver-utils
+    - xrdp
+
+- name: Install a .deb package from the internet
+  ansible.builtin.apt:
+    deb: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64

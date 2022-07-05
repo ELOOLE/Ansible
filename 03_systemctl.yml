@@ -1,0 +1,11 @@
+- name: "Ustawiamy na stałe podniesiona usluge SSH"
+  shell: "systemctl enable ssh.service"
+
+- name: "Podnosimy usługę SSH"
+  shell: "systemctl start ssh.service"
+
+- name: "Ustawiamy na stałe podniesiona usluge XRDP"
+  shell: "systemctl enable xrdp"
+
+- name: "Podnosimy usługę XRDP"
+  shell: "systemctl start xrdp"
