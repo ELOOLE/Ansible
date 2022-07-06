@@ -1,0 +1,6 @@
+- name: "disable user account: kali"
+  ansible.builtin.user:
+    name: kali
+    state: present
+    password_lock: true
+    shell: "/sbin/nologin"
