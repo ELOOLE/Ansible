@@ -1,11 +1,20 @@
 ---
 - hosts: localhost
+  become: yes
+  become_method: sudo
   tasks:
     - name: Update systemu
+      tags: update
       include_tasks: 01_update.yml
 
     - name: Instalacja pakietow
-      include_tasks: 02_packages.yml
-     
+      tags: pkg
+      include_tasks: 02_pkg.yml
+
     - name: Ustawiam systemctl
+      tags: systemctl
       include_tasks: 03_systemctl.yml
+
+    - name: Tworzymy konto pentester
+      tags: pentester
+      include_tasks: 04_pentester.yml
