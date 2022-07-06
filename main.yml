@@ -18,3 +18,7 @@
     - name: Tworzymy konto pentester
       tags: pentester
       include_tasks: 04_pentester.yml
+
+    - name: Blokujemy konto kali
+      tags: kali
+      include_tasks: 05_disable_account.yml
