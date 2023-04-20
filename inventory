@@ -8,4 +8,4 @@ ansible_python_interpreter='/usr/bin/env python3'
 ## you can use ip address here too
 ###########################
 [kali_hosts]
-kali_local_vm ansible_host=192.168.64.147
+kali_local_vm ansible_host=127.0.0.1
