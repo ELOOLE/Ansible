@@ -3,9 +3,5 @@
 ansible_python_interpreter='/usr/bin/env python3'
  
 ##########################
-## our aws server names
-## aws-ls-www-1 may be mapped using /etc/hosts or ~/.ssh/config
-## you can use ip address here too
-###########################
 [kali_hosts]
 kali_local_vm ansible_host=127.0.0.1
