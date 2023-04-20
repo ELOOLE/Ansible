@@ -1,9 +1,9 @@
-- name: Usun code-oss
+- name: Remove code-oss
   ansible.builtin.apt:
     name: code-oss
     state: absent
 
-- name: Lista pakietow do zainstalowania
+- name: Apps to install 
   ansible.builtin.apt:
     pkg:
     - kali-linux-everything
