@@ -1,4 +1,4 @@
-- name: "disable user account: kali"
+- name: Disable user account: kali
   ansible.builtin.user:
     name: kali
     state: present
