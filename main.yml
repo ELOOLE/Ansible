@@ -3,22 +3,22 @@
   become: yes
   become_method: sudo
   tasks:
-    - name: Update systemu
+    - name: Update system
       tags: update
       include_tasks: 01_update.yml
 
-    - name: Instalacja pakietow
+    - name: Pkg Install
       tags: pkg
       include_tasks: 02_pkg.yml
 
-    - name: Ustawiam systemctl
+    - name: Set systemctl
       tags: systemctl
       include_tasks: 03_systemctl.yml
 
-    - name: Tworzymy konto pentester
+    - name: Create account pentester
       tags: pentester
       include_tasks: 04_pentester.yml
 
-    - name: Blokujemy konto kali
+    - name: Disable account kali
       tags: kali
       include_tasks: 05_disable_account.yml
